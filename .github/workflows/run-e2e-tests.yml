@@ -13,9 +13,9 @@ jobs:
         ports:
           - 5432:5432
         env:
-          - POSTGRESQL_USERNAME=admin
-          - POSTGRESQL_PASSWORD=admin
-          - POSTGRESQL_DATABASE=gymapi
+          POSTGRESQL_USERNAME: admin
+          POSTGRESQL_PASSWORD: admin
+          POSTGRESQL_DATABASE: gymapi
 
     steps:
       - uses: actions/checkout@v4
