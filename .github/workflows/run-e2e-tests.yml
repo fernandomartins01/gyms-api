@@ -13,9 +13,9 @@ jobs:
         ports:
           - 5432:5432
         env:
-          - POSTGRESQL_USERNAME=admin
-          - POSTGRESQL_PASSWORD=admin
-          - POSTGRESQL_DATABASE=gymapi
+          POSTGRESQL_USERNAME: admin
+          POSTGRESQL_PASSWORD: admin
+          POSTGRESQL_DATABASE: gymapi
 
     steps:
       - uses: actions/checkout@v4
@@ -30,7 +30,7 @@ jobs:
           cache: 'pnpm'
 
       - run: pnpm install
-      - run: pnpm e2e
+      - run: pnpm test:e2e
         env:
           JWT_SECRET: testing
           DATABASE_URL: "postgresql://admin:admin@localhost:5432/gymapi?schema=public"
